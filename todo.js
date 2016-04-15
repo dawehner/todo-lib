@@ -20,7 +20,6 @@ var Todo = {
  */
 var TodoFactory = function() {
   var that = {},
-      store = [],
       /**
        * Init & Constructor function for our objects
        * @param  {[type]} text      [description]
@@ -33,20 +32,10 @@ var TodoFactory = function() {
       create = function(text, priority, project, contexts, completed) {
         var newTodo = Object.create(Todo);
         newTodo.init(text, priority, project, contexts, completed);
-        // in case we want to get a record of all Todo's init'd
-        store.push(newTodo);
         return newTodo;
       },
-      /**
-       * Returns all Todo's created with the factory
-       * @return Array
-       */
-      getAll = function() {
-        return store;
-      };
 
   that.create = create;
-  that.getAll = getAll;
   return that;
 }
 
