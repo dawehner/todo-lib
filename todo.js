@@ -33,7 +33,7 @@ var TodoFactory = function() {
         var newTodo = Object.create(Todo);
         newTodo.init(text, priority, project, contexts, completed);
         return newTodo;
-      },
+      };
 
   that.create = create;
   return that;
