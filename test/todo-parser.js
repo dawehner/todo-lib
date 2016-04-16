@@ -66,5 +66,20 @@ describe('todo-parser', function() {
       assert.deepEqual([], todo.contexts);
       assert.deepEqual(['project1', 'project2'], todo.projects);
     });
+    it('string with create date', function() {
+      var todo = TodoParser.parse('2012-10-11 hello');
+      assert.isOk(todo);
+      assert.equal('hello', todo.text);
+      assert.equal('2012-10-11', todo.createDate);
+    });
+    it('string with everything', function() {
+      var todo = TodoParser.parse('x 2011-12-13 2010-11-12 hello +project @meh');
+      assert.isOk(todo);
+      assert.isOk(todo.completed);
+      assert.equal('2011-12-13', todo.completionDate);
+      assert.equal('2010-11-12', todo.createDate);
+      assert.deepEqual(['meh'], todo.contexts);
+      assert.deepEqual(['project'], todo.projects);
+    });
   });
 });
