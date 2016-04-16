@@ -1,8 +1,8 @@
 var Todo = {
-  init(text, priority, project, contexts, completed) {
+  init(text, priority, projects, contexts, completed) {
     this.text = text;
     this.priority = priority || '';
-    this.project = project || '';
+    this.projects = projects || '';
     this.contexts = contexts || [];
     this.completed = !!completed;
     this.completionDate = completed;
@@ -29,9 +29,9 @@ var TodoFactory = function() {
        * @param  {[type]} completed [description]
        * @return {[type]}           [description]
        */
-      create = function(text, priority, project, contexts, completed) {
+      create = function(text, priority, projects, contexts, completed) {
         var newTodo = Object.create(Todo);
-        newTodo.init(text, priority, project, contexts, completed);
+        newTodo.init(text, priority, projects, contexts, completed);
         return newTodo;
       };
 
